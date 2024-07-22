@@ -16,7 +16,9 @@ const PetCard = ({ pet }: Props) => {
       )}
       <p>{pet.name}</p>
       <p>{pet.species}</p>
-      <p>{pet.breeds.primary}</p>
+      <p>
+        {pet.breeds.primary}/{pet.breeds.secondary}
+      </p>
       <p>{pet.size}</p>
       <p>{pet.age}</p>
     </div>

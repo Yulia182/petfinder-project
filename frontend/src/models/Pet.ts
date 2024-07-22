@@ -13,6 +13,6 @@ export default interface Pet {
   size: string;
   age: string;
   status: string;
-  breeds: { mixed: boolean; primary: string };
+  breeds: { mixed: boolean; primary: string; secondary: string };
   primary_photo_cropped: Photo | null;
 }
