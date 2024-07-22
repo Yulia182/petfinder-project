@@ -12,7 +12,7 @@ export const getAnimals = (): Promise<Pet[]> => {
       // type: "Dog",
       // breed: "Bernedoodle",
       page: 1,
-      limit: 1,
+      limit: 2,
     })
     .then(function (res) {
       console.log(res.data.animals);
@@ -22,3 +22,9 @@ export const getAnimals = (): Promise<Pet[]> => {
       console.log(error);
     });
 };
+
+// export const getAnimalsByFilter = ():Promise<Pet[]> => {
+//   return client.animal.search({
+//     type:
+//   })
+// }

@@ -1,5 +1,5 @@
 interface Photo {
-  small: string;
+  small?: string;
   medium?: string;
   large?: string;
   full?: string;
@@ -8,11 +8,11 @@ interface Photo {
 export default interface Pet {
   id: number;
   name: string;
-  description: string;
   gender: string;
   species: string;
+  size: string;
+  age: string;
   status: string;
-  url: string;
-  photos: Photo[];
-  primary_photo_cropped: string;
+  breeds: { mixed: boolean; primary: string };
+  primary_photo_cropped: Photo | null;
 }
