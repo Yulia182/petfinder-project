@@ -32,6 +32,16 @@ export const getAnimals = (filters: Filters): Promise<Pet[]> => {
     });
 };
 
+// display animal by id
+export const getAnimalById = (id: string): Promise<Pet> => {
+  return client.animal
+    .show(Number(id))
+    .then((res) => {
+      console.log(res.data.animal);
+      return res.data.animal;
+    })
+    .catch((err) => console.log(err));
+};
 // export const getAnimalsByFilter = ():Promise<Pet[]> => {
 //   return client.animal.search({
 //     type:

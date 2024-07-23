@@ -1,6 +1,7 @@
 import "./PetCard.css";
 import Pet from "../models/Pet";
 import noImg from "../assets/no-img.png";
+import { Link } from "react-router-dom";
 
 interface Props {
   pet: Pet;
@@ -14,7 +15,9 @@ const PetCard = ({ pet }: Props) => {
       ) : (
         <img src={noImg} alt="image-holder"></img>
       )}
-      <p>{pet.name}</p>
+      <p>
+        <Link to={`/${pet.id}`}>{pet.name}</Link>
+      </p>
       <p>{pet.species}</p>
       <p>
         {pet.breeds.primary}

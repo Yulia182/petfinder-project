@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import PetList from "./pages/PetList";
 import PetQuiz from "./pages/PetQuiz";
 import PetDescription from "./pages/PetDescription";
+import AdoptionStories from "./pages/AdoptionStories";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/petSearch" element={<PetList />} />
           <Route path="/petQuiz" element={<PetQuiz />} />
           <Route path="/:id" element={<PetDescription />} />
+          <Route path="/adoption" element={<AdoptionStories />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
