@@ -8,17 +8,20 @@ const apiSecret = import.meta.env.VITE_API_SECRET;
 const client = new Client({ apiKey, secret: apiSecret });
 
 export const getAnimals = (filters: Filters): Promise<Pet[]> => {
+  const defaultLocation = "10001"; //10001 - default location NYC
+  const location = filters.location ? filters.location : defaultLocation;
   return client.animal
     .search({
       type: filters.type,
       breed: filters.breed,
-      location: filters.location,
+      location: location,
       good_with_cats: filters.goodWithCats,
       good_with_dogs: filters.goodWithDogs,
       good_with_children: filters.goodWithKids,
       status: "adoptable",
+      distance: 50, // within 50 miles distance
       page: 1,
-      limit: 10,
+      limit: 3,
     })
     .then(function (res) {
       console.log(res.data.animals);

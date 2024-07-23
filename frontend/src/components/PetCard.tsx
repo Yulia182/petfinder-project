@@ -17,10 +17,14 @@ const PetCard = ({ pet }: Props) => {
       <p>{pet.name}</p>
       <p>{pet.species}</p>
       <p>
-        {pet.breeds.primary}/{pet.breeds.secondary}
+        {pet.breeds.primary}
+        {pet.breeds.secondary === null ? "" : `/${pet.breeds.secondary}`}
       </p>
       <p>{pet.size}</p>
       <p>{pet.age}</p>
+      <p>
+        {pet.contact.address.city}, {pet.contact.address.postcode}
+      </p>
     </div>
   );
 };

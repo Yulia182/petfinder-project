@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export interface Filters {
   type: string | null;
   breed: string;
-  location: string | null;
+  location: string;
   goodWithCats: boolean | null;
   goodWithDogs: boolean | null;
   goodWithKids: boolean | null;
@@ -20,7 +20,7 @@ const PetList = () => {
   //controlled components
   const [type, setType] = useState<string | null>(null);
   const [breed, setBreed] = useState<string>("");
-  const [location, setLocation] = useState<string | null>(null);
+  const [location, setLocation] = useState<string>("");
   const [isCheckedCats, setIsCheckedCats] = useState<boolean>(false);
   const [isCheckedDogs, setIsCheckedDogs] = useState<boolean>(false);
   const [isCheckedKids, setIsCheckedKids] = useState<boolean>(false);
@@ -42,10 +42,11 @@ const PetList = () => {
 
   // searchHandler() function to search for pets by filters
   const searchHandler = () => {
+    const defaultLocation = "10001"; // NYC
     setFilters({
       type: type,
       breed: breed,
-      location: location,
+      location: location ? location : defaultLocation,
       goodWithCats: isCheckedCats ? true : null,
       goodWithDogs: isCheckedDogs ? true : null,
       goodWithKids: isCheckedKids ? true : null,
@@ -67,6 +68,7 @@ const PetList = () => {
           type="text"
           name="breed"
           id="breed"
+          placeholder="Enter full name"
           value={breed}
           onChange={(e) => setBreed(e.target.value)}
         />
@@ -75,6 +77,7 @@ const PetList = () => {
           type="text"
           name="location"
           id="location"
+          placeholder="10001"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />

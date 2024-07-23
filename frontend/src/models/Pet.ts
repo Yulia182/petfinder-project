@@ -15,4 +15,5 @@ export default interface Pet {
   status: string;
   breeds: { mixed: boolean; primary: string; secondary: string };
   primary_photo_cropped: Photo | null;
+  contact: { address: { city: string; postcode: string } };
 }
